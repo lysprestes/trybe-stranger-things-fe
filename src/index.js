@@ -1,11 +1,18 @@
+import Dotenv from 'dotenv';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+Dotenv.config();
+const reactDev = (process.env.REACT_APP_DEV === 'true');
+
 ReactDOM.render(
   <React.StrictMode>
+    {
+      reactDev ? <div>Em desenvolvimento...</div> : null
+    }
     <App />
   </React.StrictMode>,
   document.getElementById('root'),
